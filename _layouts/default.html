@@ -1,0 +1,121 @@
+---
+layout: home
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="content-language" content="ja">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="keyword" content="advanced_bear,くまもっち,TwitchTalkApp,読み上げ,棒読みちゃん,EPGStation">
+	<meta name="google-site-verification" content="TdK4sCTQ3DP2C127lCf39CfsH_BFVj4zTHF5m1yiEmE" />
+	<meta name="google-site-verification" content="knEUjqKM9qUhU0vz6DSYIvgycNPrjpj0CVMyvn3UwxY" />
+	<meta name="description"
+		content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="/assets/css/materialize.min.css" media="screen,projection" />
+	<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} |
+		{{ site.description}}{% endif %}</title>
+	<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/js/materialize.min.js"></script>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-2795499737457846",
+			enable_page_level_ads: true
+		});
+		$(document).ready(function () {
+			$('.tabs').tabs();
+			$('.sidenav').sidenav();
+		});
+	</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101268720-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'UA-101268720-2');
+	</script>
+</head>
+
+<body class="grey lighten-5">
+	<nav class="nav-extended">
+		<div class="nav-wrapper teal navbar-fixed">
+			<a href="/" class="brand-logo center">ガジェットのある日常</a>
+			<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		</div>
+		<div class="nav-content teal darken-2 hide-on-med-and-down">
+			<div class="container">
+				<ul class="tabs tabs-transparent tabs-fixed-width">
+					<li class="tab"><a target="_self" href="/">Blog</a></li>
+					<li class="tab"><a class="{{ page.tta_active }}" target="_self" href="#">TwitchTalkApp</a></li>
+					<li class="tab"><a class="{{ page.about_active }}" target="_self" href="/about/">About</a></li>
+					<li class="tab"><a target="_self" href="https://www.advbear.cf/">Homepage</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<ul class="sidenav no-padding" id="mobile-demo">
+		<div class="row">
+			<div class="col s12">
+				<H5 class="center-align">- MENU -</H5>
+			</div>
+		</div>
+		<li><a href="/"><i class="material-icons">home</i>Home</a></li>
+		<li class="divider" style="margin-bottom: 8px;"></li>
+		<div class="row">
+			<div class="col s12">
+				<h6 class="center-align">Links</h6>
+			</div>
+		</div>
+		<li><a href="/tta/"><i class="material-icons">forum</i>TwitchTalkApp</a></li>
+		<li><a href="/about/"><i class="material-icons">info</i>About</a></li>
+		<li><a href="https://www.advbear.cf/"><i class="material-icons">language</i>Homepage</a></li>
+		<li class="divider" style="margin-bottom: 8px;"></li>
+	</ul>
+	
+	<div class="container">
+
+		{{ content }}
+
+	</div>
+
+	<footer class="page-footer teal">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">本サイトについて</h5>
+					<p class="grey-text text-lighten-4">本サイトやブログ、Twitter等ではAmazonアソシエイト・プログラムのリンクを使用する事があります。<br>
+						また、本サイトではGoogle Analyticsによるアクセス解析を実施しています。</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">管理人</h5>
+
+					<ul>
+						{% if site.author.github %}
+						<li><a class="grey-text text-lighten-3"
+								href="https://github.com/{{ site.author.github }}">GitHub</a></li>
+						{% endif %}
+						{% if site.author.twitter %}
+						<li><a class="grey-text text-lighten-3"
+								href="https://twitter.com/{{ site.author.twitter }}">Twitter</a></li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container center-align">
+				© 2020 advanced_bear All rights reserved.
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

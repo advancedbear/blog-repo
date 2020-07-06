@@ -1,0 +1,25 @@
+title: ガジェットのある日常
+description: >
+  ガジェットやPCパーツ、自作PCなどについて書いているブログです。
+baseurl: ""
+url: "https://blog.advbear.cf"
+
+author:
+  name: くまもっち
+  email: advanced.bear@gmail.com
+  twitter: advanced_bear
+  github:  advancedbear
+
+gems:
+  - jekyll-paginate
+  - jekyll-feed
+
+paginate: 5
+paginate_path: "/page:num/"
+excerpt_separator: "<!--more-->"
+
+sass:
+  style: expanded
+
+plugins:
+  - jekyll-paginate

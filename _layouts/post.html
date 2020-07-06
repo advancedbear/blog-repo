@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+<div class="row">
+	<div class="col s12">
+		<div class="card">
+			<div class="card-image">
+				{% if page.image %}
+				<img src="/images/{{ page.image }}">
+				{% elsif page.image-web %}
+				<img src="{{ page.image-web }}">
+				{% endif %}
+			</div>
+			<div class="card-content">
+				<span class="card-title">{{ page.title }}</span>
+				<p class="right">{{ page.date | date: '%Y/%m/%d' }}</p>
+			</div>
+			<div class="card-content">
+				{{ content }}
+			</div>
+			<div class="card-action center-align">
+				<a class="waves-effect btn blue darken-1" href="//twitter.com/share?url={{ page.absolute_url }}&text={{ page.title }} - {{ site.title }}&related=advanced_bear" target="_blank"><i class="fa fa-twitter"></i></a>
+				<a class="waves-effect btn indigo" href="//www.facebook.com/share.php?u={{ page.absolute_url }}" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a class="waves-effect btn light-green accent-4" href="//social-plugins.line.me/lineit/share?url={{ page.absolute_url }}" target="_blank"><i class="fa fa-comment"></i></a>
+				<a class="waves-effect btn light-blue" href="//b.hatena.ne.jp/add?url={{ page.absolute_url }}" target="_blank"><i class="fa fa-bold"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	{% if page.previous %}
+	<div class="col s6 l4">
+		<div class="card">
+			<a href="{{ page.previous.url | relative_url }}">
+				<div class="card-content center-align">
+					<span class="valign-wrapper"><i class="material-icons">chevron_left</i>　{{ page.previous.title }}</span>
+				</div>
+			</a>
+		</div>
+	</div>
+	{% endif %}
+	{% if page.next %}
+	<div class="col s6 l4 {% if page.previous %} offset-l4 {% else %} offset-l8 {% endif %}">
+		<div class="card">
+			<a href="{{ page.next.url | relative_url }}">
+				<div class="card-content center-align">
+					<span class="valign-wrapper">{{ page.next.title }}　<i class="material-icons">chevron_right</i></span>
+				</div>
+			</a>
+		</div>
+	</div>
+	{% endif %}
+</div>
+
+<script>
+	$('p:has(img)').css('text-align', 'center')
+</script>

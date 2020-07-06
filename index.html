@@ -1,0 +1,81 @@
+---
+layout: default
+---
+
+<div class="row">
+	{% for post in paginator.posts limit:5 %}
+	{% if forloop.index == 1 %}
+	<a href="{{ post.url | relative_url }}">
+		<div class="col s12 m12">
+			<div class="card hoverable">
+				<div class="card-image">
+					{% if post.image %}
+					<img src="/images/{{ post.image }}">
+					{% elsif post.image-web %}
+					<img src="{{ post.image-web }}">
+					{% endif %}
+				</div>
+				<div class="card-content">
+					<span class="card-title teal-text">{{ post.title }}</span>
+				</div>
+				<div class="card-action teal-text right-align">
+					<span>{{ post.date | date: '%Y/%m/%d' }}</span>
+				</div>
+			</div>
+		</div>
+	</a>
+	{% else %}
+	<a href="{{ post.url | relative_url }}">
+		<div class="col s12 m6">
+			<div class="card hoverable">
+				<div class="card-image">
+					{% if post.image %}
+					<img src="/images/{{ post.image }}">
+					{% elsif post.image-web %}
+					<img src="{{ post.image-web }}">
+					{% endif %}
+				</div>
+				<div class="card-content">
+					<span class="card-title teal-text text-darken-2">{{ post.title }}</span>
+				</div>
+				<div class="card-action teal-text right-align">
+					<span>{{ post.date | date: '%Y/%m/%d' }}</span>
+				</div>
+			</div>
+		</div>
+	</a>
+	{% endif %}
+	{% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<div class="row center-align">
+	<ul class="pagination">
+		{% if paginator.previous_page %}
+		<li class="waves-effect"><a href="{{ paginator.previous_page_path | relative_url }}"><i
+					class="material-icons">chevron_left</i></a></li>
+		{% else %}
+		<li class="disabled"><a href="#!"><i
+					class="material-icons">chevron_left</i></a></li>
+		{% endif %}
+
+		{% for page in (1..paginator.total_pages) %}
+		{% if page == paginator.page %}
+		<li class="active teal"><a href="#!">{{ page }}</a></li>
+		{% elsif page == 1 %}
+		<li class="waves-effect"><a href="{{ '/' | relative_url }}">{{ page }}</a></li>
+		{% else %}
+		<li class="waves-effect"><a
+				href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a></li>
+		{% endif %}
+		{% endfor %}
+
+		{% if paginator.next_page %}
+		<li class="waves-effect"><a href="{{ paginator.next_page_path | relative_url }}"><i
+					class="material-icons">chevron_right</i></a></li>
+		{% endif %}
+	</ul>
+</div>
+<!--pagination-->
+{% endif %}
+</div>
